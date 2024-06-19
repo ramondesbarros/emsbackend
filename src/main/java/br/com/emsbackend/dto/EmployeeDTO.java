@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class EmployeeDTO {
 
     public EmployeeDTO() {
-
         super();
     }
 
