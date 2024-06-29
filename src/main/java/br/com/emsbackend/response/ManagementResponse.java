@@ -1,6 +1,6 @@
 package br.com.emsbackend.response;
 
-import javax.persistence.Column;
+import jakarta.persistence.*;
 
 public class ManagementResponse {
 

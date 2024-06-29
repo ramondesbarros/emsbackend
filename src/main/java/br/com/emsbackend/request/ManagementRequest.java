@@ -1,7 +1,5 @@
 package br.com.emsbackend.request;
 
-import javax.persistence.Column;
-
 public class ManagementRequest {
 
     public ManagementRequest(String title, String description, boolean completed) {

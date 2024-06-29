@@ -1,32 +1,26 @@
 package br.com.emsbackend.security;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+// https://github.com/neckeltech/spring-security-basic-authentication/blob/main/src/main/java/tech/neckel/security/security/WebSecurityConfig.java
 
 @Entity
-@Table(name = "roles")
+@Table(name = "role")
 public class Role {
 
-    public Role() {
-        super();
-    }
-
-    public Role(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name")
+    @Column(nullable = false, unique = true)
     private String name;
+
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setRoleId(Long id) {
         this.id = id;
     }
 
@@ -37,5 +31,4 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }
-
 }

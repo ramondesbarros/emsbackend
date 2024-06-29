@@ -1,6 +1,6 @@
 package br.com.emsbackend.request;
 
-import javax.persistence.Column;
+import jakarta.persistence.*;
 
 public class DepartmentRequest {
 

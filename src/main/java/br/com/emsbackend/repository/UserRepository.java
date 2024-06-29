@@ -8,10 +8,19 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "SELECT * FROM user u WHERE u.user_name = :usernameOrEmail OR u.email = :usernameOrEmail", nativeQuery = true)
     User findByUsernameOrEmail(@Param("usernameOrEmail") String usernameOrEmail);
+
+    Optional<User> findByUsernameOrEmail(String username, String email);
+
+    Boolean existsByEmail(String email);
+
+    Boolean existsByUsername(String username);
+
 
 }

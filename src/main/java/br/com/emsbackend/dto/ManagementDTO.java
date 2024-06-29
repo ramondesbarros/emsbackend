@@ -1,6 +1,6 @@
 package br.com.emsbackend.dto;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "management")
