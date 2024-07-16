@@ -2,6 +2,8 @@ package br.com.emsbackend.dto;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "employee")
 public class EmployeeDTO {
@@ -10,9 +12,7 @@ public class EmployeeDTO {
         super();
     }
 
-
     public EmployeeDTO(String firstName, String lastName, String email) {
-
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -30,6 +30,14 @@ public class EmployeeDTO {
 
     @Column(name = "email")
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private DepartmentDTO department;
+
+    @ManyToOne
+    @JoinColumn(name = "management_id")
+    private ManagementDTO management;
 
     public Long getId() {
         return id;
@@ -61,5 +69,21 @@ public class EmployeeDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public DepartmentDTO getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(DepartmentDTO department) {
+        this.department = department;
+    }
+
+    public ManagementDTO getManagement() {
+        return management;
+    }
+
+    public void setManagement(ManagementDTO management) {
+        this.management = management;
     }
 }

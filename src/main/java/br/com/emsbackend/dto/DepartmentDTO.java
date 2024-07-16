@@ -3,6 +3,9 @@ package br.com.emsbackend.dto;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name = "department")
 public class DepartmentDTO {
@@ -28,6 +31,12 @@ public class DepartmentDTO {
     @Column(name = "department_description")
     private String departmentDescription;
 
+    @OneToMany(mappedBy = "department")
+    private List<EmployeeDTO> employees;
+
+    @ManyToMany(mappedBy = "departments")
+    private Set<ManagementDTO> managements;
+
     public Long getId() {
         return id;
     }
@@ -50,5 +59,21 @@ public class DepartmentDTO {
 
     public void setDepartmentDescription(String departmentDescription) {
         this.departmentDescription = departmentDescription;
+    }
+
+    public List<EmployeeDTO> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<EmployeeDTO> employees) {
+        this.employees = employees;
+    }
+
+    public Set<ManagementDTO> getManagements() {
+        return managements;
+    }
+
+    public void setManagements(Set<ManagementDTO> managements) {
+        this.managements = managements;
     }
 }
